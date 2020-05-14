@@ -3,12 +3,16 @@ package order;
 import java.util.Scanner;
 
 public class User {
+	private VegPizza vegPizza;
+	private NonVegPizza nonVegPizza;
+	
 	public void order() {
 		
 		boolean pizzaOrderIteration = true;
 		
+		
 		while(pizzaOrderIteration) {
-			System.out.println("Enter the type of Pizza");
+			System.out.println("\nEnter the type of Pizza");
 			System.out.println("1. Veg Pizza");
 			System.out.println("2. Non Veg Pizza");
 			
@@ -17,12 +21,12 @@ public class User {
 			
 			switch(choice) {
 				case 1:
-					VegPizza vegPizza = new VegPizza();
+					vegPizza = new VegPizza();
 					vegPizza.crustSelection();
 					vegPizza.cheeseSelection();
 					vegPizza.baseToppingSelection();;
 					vegPizza.quantityOfPizza();
-					System.out.println("Would you like to order more pizzas");
+					System.out.println("\nWould you like to order more pizzas");
 					System.out.println("1. Yes");
 					System.out.println("2. No");
 					
@@ -33,18 +37,18 @@ public class User {
 						pizzaOrderIteration = true;
 					}
 					else {
-						System.out.println(vegPizza.qCost);
-						System.out.println("Thanks for using our services. Have a great day!!!");
+						System.out.println("\nThanks for using our services. Have a great day!!!");
+						System.out.println("The overall cost of your order is " + vegPizza.overallCost());
 						pizzaOrderIteration = false;
 					}
 					break;
 				case 2:
-					NonVegPizza nonVegPizza = new NonVegPizza();
+					nonVegPizza = new NonVegPizza();
 					nonVegPizza.crustSelection();
 					nonVegPizza.cheeseSelection();
 					nonVegPizza.baseToppingSelection();
 					nonVegPizza.quantityOfPizza();
-					System.out.println("Would you like to order more pizzas");
+					System.out.println("\nWould you like to order more pizzas");
 					System.out.println("1. Yes");
 					System.out.println("2. No");
 					
@@ -55,8 +59,8 @@ public class User {
 						pizzaOrderIteration = true;
 					}
 					else {
-						System.out.println(nonVegPizza.qCost);
-						System.out.println("Thanks for using our services. Have a great day!!!");
+						System.out.println("\nThanks for using our services. Have a great day!!!");
+						System.out.println("The overall cost of your order is " + nonVegPizza.overallCost());
 						pizzaOrderIteration = false;						
 					}
 					break;
