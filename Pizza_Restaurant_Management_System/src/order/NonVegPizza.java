@@ -10,15 +10,14 @@ public class NonVegPizza extends VegPizza {
 		int nonvegBaseToppingCost = 0;
 		String nonvegBaseToppingChoice = "";
 		
-		for( Entry<String, Integer> entry : IngredientsMap.getNonVegBaseToppingMap().entrySet() ){
-		    System.out.println( entry.getKey() + " => " + entry.getValue() );
-		}
+		System.out.println("\nFollowing are the available types of non veg base toppings along with their price: ");
+		IngredientsMap.printNonVegBaseToppingMap();
 		
 		Scanner sc = new Scanner(System.in);
 		
 		boolean nonvegBaseToppingChoicevalidation = false;
 		while(!nonvegBaseToppingChoicevalidation) {
-			System.out.println("Please enter your choice of cheese: ");
+			System.out.println("\nPlease enter your choice of base topping: ");
 			nonvegBaseToppingChoice = sc.nextLine();
 			if(IngredientsMap.getNonVegBaseToppingMap().containsKey(nonvegBaseToppingChoice)) {
 				nonvegBaseToppingCost = IngredientsMap.getNonVegBaseToppingMap().get(nonvegBaseToppingChoice);
@@ -31,7 +30,7 @@ public class NonVegPizza extends VegPizza {
 		}
 		
 		totalCost = totalCost + nonvegBaseToppingCost;
-		System.out.println("Base topping chosen: " + nonvegBaseToppingChoice);
+		System.out.println("\nBase topping chosen: " + nonvegBaseToppingChoice);
 		System.out.println("Cost so far: " + totalCost);
 	}
 	
